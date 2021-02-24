@@ -1,7 +1,8 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
 //A gente importa nossos reducers
-import cartReducer from "../store/modules/cart/reducer";
+import { cartReducer } from "../store/modules/cart/reducer";
 import productsReducer from "../store/modules/products/reducer";
 
 const reducers = combineReducers({
@@ -9,6 +10,6 @@ const reducers = combineReducers({
   products: productsReducer,
 });
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;

@@ -5,7 +5,7 @@ import { CardTotal } from "./styles";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  console.log(cart.length);
+  console.log("carrinho", cart);
   return (
     <div
       style={{

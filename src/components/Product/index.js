@@ -1,10 +1,18 @@
+// import { useState } from "react";
+// import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../store/modules/cart/actions";
+// import { addToCart, removeFromCart } from "../../store/modules/cart/actions";
 import { CardProduct, ButtonProduct, CardImage } from "./styles";
 import { CardContent } from "@material-ui/core";
+import {
+  addToCartThunk,
+  removeFromCartThunk,
+} from "../../store/modules/cart/thunks";
 
 const Product = ({ product, isRemovable = false }) => {
   const dispatch = useDispatch();
+  // const estado = useSelector((state) => state);
+  // console.log("state", estado);
 
   return (
     <>
@@ -34,7 +42,7 @@ const Product = ({ product, isRemovable = false }) => {
                 width="20%"
               />
               <ButtonProduct
-                onClick={() => dispatch(removeFromCart(product.id))}
+                onClick={() => dispatch(removeFromCartThunk(product.id))}
               >
                 Remover item do carrinho
               </ButtonProduct>
@@ -55,7 +63,7 @@ const Product = ({ product, isRemovable = false }) => {
             <h3>{product.name}</h3>
             <h2>R$ {product.price}</h2>
           </CardContent>{" "}
-          <ButtonProduct onClick={() => dispatch(addToCart(product))}>
+          <ButtonProduct onClick={() => dispatch(addToCartThunk(product))}>
             Adicionar item ao carrinho
           </ButtonProduct>
         </CardProduct>
