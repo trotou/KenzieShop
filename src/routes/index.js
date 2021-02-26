@@ -1,20 +1,20 @@
 import { Switch, Route } from "react-router-dom";
 import Carrinho from "../pages/Carrinho";
 import Home from "../pages/Home";
+import { AnimatePresence } from "framer-motion";
 
-const Routes = ({ setIsAuth }) => {
+const Routes = () => {
   return (
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      {/* <Route path="/home">
-        <Home setIsAuth={setIsAuth} />
-      </Route> */}
-      <Route path="/carrinho">
-        <Carrinho />
-      </Route>
-    </Switch>
+    <AnimatePresence>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/carrinho">
+          <Carrinho />
+        </Route>
+      </Switch>
+    </AnimatePresence>
   );
 };
 

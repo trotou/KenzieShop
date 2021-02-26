@@ -14,11 +14,12 @@ const Products = () => {
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "center",
-        backgroundColor: "white",
+        backgroundColor: "#f8f9fa",
+        marginTop: "3%",
       }}
     >
       {products.map((product, index) => (
-        <Product key={index} product={product} />
+        <Product key={index} shop={product} />
       ))}
     </div>
   );

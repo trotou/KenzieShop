@@ -1,10 +1,16 @@
 import Cart from "../../components/Cart";
+import { motion } from "framer-motion";
 
 const Carrinho = () => {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <Cart />
-    </div>
+    </motion.div>
   );
 };
 

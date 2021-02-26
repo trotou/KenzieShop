@@ -1,13 +1,18 @@
 const defaultState = [
-  { id: 1, name: "Geladeira", price: 200, unique: "" },
-  { id: 2, name: "Fogão", price: 640, unique: "" },
-  { id: 3, name: "Máquina de lavar", price: 420, unique: "" },
-  { id: 4, name: "luminária", price: 45, unique: "" },
-  { id: 5, name: "Televisor", price: 500, unique: "" },
-  { id: 6, name: "Celular", price: 340, unique: "" },
-  { id: 7, name: "Notebook", price: 730, unique: "" },
-  { id: 8, name: "Cafeteira", price: 80, unique: "" },
-  { id: 9, name: "Cama", price: 280, unique: "" },
+  { id: "", name: "Geladeira", price: 200, image: "./images/product1.jpg" },
+  { id: "", name: "Fogão", price: 640, image: "./images/product2.jpg" },
+  {
+    id: "",
+    name: "Máquina de lavar",
+    price: 420,
+    image: "./images/product3.jpg",
+  },
+  { id: "", name: "luminária", price: 45, image: "./images/product4.jpg" },
+  { id: "", name: "Televisor", price: 500, image: "./images/product5.jpg" },
+  { id: "", name: "Celular", price: 340, image: "./images/product6.jpg" },
+  { id: "", name: "Notebook", price: 730, image: "./images/product7.jpg" },
+  { id: "", name: "Cafeteira", price: 80, image: "./images/product8.jpg" },
+  { id: "", name: "Cama", price: 280, image: "./images/product9.jpg" },
 ];
 
 const productsReducer = (state = defaultState) => {

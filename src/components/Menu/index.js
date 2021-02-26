@@ -9,10 +9,10 @@ import {
 } from "@material-ui/core/";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-
 import { useHistory } from "react-router-dom";
+import { BoxDiv } from "./styles";
 
-const Menu = ({ isAuth, setIsAuth }) => {
+const Menu = () => {
   const history = useHistory();
 
   const cart = useSelector((state) => state.cart);
@@ -20,29 +20,44 @@ const Menu = ({ isAuth, setIsAuth }) => {
   const sendTo = (path) => {
     history.push(path);
   };
+  const reload = () => window.location.reload();
+
+  const checkCartItens = () => {
+    if (localStorage.getItem("cart")) {
+      sendTo("/carrinho");
+    } else {
+      sendTo("/");
+    }
+  };
+
+  const handleCloseApplication = () => {
+    localStorage.clear();
+    sendTo("/");
+    setTimeout(() => {
+      reload();
+    }, 300);
+  };
 
   return (
     <AppBar position="fixed">
       <Toolbar>
         <Typography>Kenzie Shop</Typography>
-        <div
-          style={{
-            display: "flex",
-            width: "90%",
-            flexDirection: "row",
-            justifyContent: "flex-end",
-          }}
-        >
+
+        <BoxDiv>
           <IconButton onClick={() => sendTo("/")}>
             <HomeOutlinedIcon />
           </IconButton>
-          <IconButton onClick={() => sendTo("/carrinho")}>
+
+          <IconButton onClick={checkCartItens}>
             <Badge badgeContent={cart.length} color="secondary">
               <ShoppingCartOutlinedIcon />
             </Badge>
           </IconButton>
-          <MenuItem>Entrar</MenuItem>
-        </div>
+
+          <MenuItem onClick={handleCloseApplication}>
+            Esvaziar Carrinho
+          </MenuItem>
+        </BoxDiv>
       </Toolbar>
     </AppBar>
   );
